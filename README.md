@@ -21,7 +21,7 @@ The repository provides an archive of the key artifacts required to setup (or up
 
 ### Deployment Instructions ###
 
-* Clone the repository ```git clone https://moutsio1@bitbucket.org/novartisnibr/qmic-UTIL_H2INMEM_QUERY.git```
+* Clone the repository ```git clone https://github.com/imoutsatsos/JENKINS-UTIL_H2INMEM_QUERY.git```
 * Deploy artifacts with [gradle](https://gradle.org/)
 	* Open console in repository folder and execute command ```gradle deploy```
 	* Deployment creates a **backup of all original files** (if they exist) in **qmic-UTIL_H2INMEM_QUERY/backup** folder
