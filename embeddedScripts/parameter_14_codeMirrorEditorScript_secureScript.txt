@@ -1,0 +1,17 @@
+return """
+<script>
+  var mime = 'text/x-mariadb';
+  // get mime type
+  window.editor = CodeMirror.fromTextArea(document.getElementById('customQuery'), {
+    mode: mime,
+    indentWithTabs: true,
+    smartIndent: true,
+    lineNumbers: true,
+    matchBrackets : true,
+    autofocus: true,
+    extraKeys: {"Ctrl-Space": "autocomplete"},
+  });
+
+</script>
+
+"""

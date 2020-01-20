@@ -1,0 +1,39 @@
+import org.h2.Driver
+import groovy.sql.Sql
+import java.util.logging.Level
+import java.util.logging.Logger
+
+def LOGGER= Logger.getLogger('org.biouno.unochoice')
+
+helperDB=HELPER_DB
+def sql = Sql.newInstance("jdbc:h2:mem:$helperDB", "org.h2.Driver")
+
+LOGGER.log(Level.INFO, "ACTION: $MANAGE_ACTION")
+
+switch(MANAGE_ACTION){
+case"DELETE":
+stmt1="""
+DELETE  FROM $SESSION_PARAMDB
+WHERE PARAM IN (${RESULTSET_SELECTION.split(',').collect{"'$it'"}.join(',')})
+""" as String
+sql.execute(stmt1)
+LOGGER.log(Level.INFO, "DELETED: $RESULTSET_SELECTION")
+break
+case"REVIEW":
+/*
+do review actions -reload etc
+*/
+break
+default:
+println 'fix error'
+LOGGER.log(Level.INFO, "DEFAULT ACTION: ${MANAGE_ACTION}")
+}
+
+
+html='''<div id="managePlan">
+<input id="makeTestGallery" name="testGalleryButton" type="button" value="ADD" onclick="setJsonResultParam('jsonResultSetParam')">     
+<input id="deleteEntry" type="button" value="DELETE" onclick="document.getElementById('manageAction').value='DELETE';jQuery('#manageAction').trigger('change')"/>
+<input id="reviewEntry" type="button" value="REVIEW" disabled="true" onclick="document.getElementById('manageAction').value='REVIEW';jQuery('#manageAction').trigger('change')"/>
+<p>
+</div>'''
+return html

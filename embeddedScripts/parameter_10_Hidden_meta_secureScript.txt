@@ -1,0 +1,1 @@
+return "<input name=\"value\" id=\"hidden_meta\" value=\"${TABLE_COLUMNS}\" class=\"setting-input\" type=\"text\">"

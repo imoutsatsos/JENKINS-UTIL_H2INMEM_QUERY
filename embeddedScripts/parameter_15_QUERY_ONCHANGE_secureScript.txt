@@ -1,0 +1,5 @@
+html='''
+			 <div id="queryStatus">
+			 <input id="queryFlag" name="value" value="OFF" type="text"/>
+			 </div>'''
+			 return html

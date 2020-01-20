@@ -1,0 +1,1 @@
+return "<input name=\"value\" value=\"${RESULTSET_LIST}\" class=\"setting-input\" type=\"text\">"

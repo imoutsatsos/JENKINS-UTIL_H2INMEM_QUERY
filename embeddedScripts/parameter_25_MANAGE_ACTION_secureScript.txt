@@ -1,0 +1,3 @@
+return """
+<input id="manageAction" name="value" type="text" class="setting-input   " value="">
+"""

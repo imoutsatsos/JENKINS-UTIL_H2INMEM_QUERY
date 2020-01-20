@@ -1,0 +1,19 @@
+import org.h2.Driver
+import groovy.sql.Sql
+import java.util.logging.Level
+import java.util.logging.Logger
+def LOGGER = Logger.getLogger("org.biouno.AC_Scripts"); 
+LOGGER.info("@TABLE_COLUMNS_instance:$DB_INSTANCE"); 
+LOGGER.info("@TABLE_COLUMNS_table:$DBTABLE"); 
+
+sql = Sql.newInstance("jdbc:h2:mem:$DB_INSTANCE;DB_CLOSE_DELAY=-1", "org.h2.Driver")
+tableName=DBTABLE
+
+sql.rows("Select * from $tableName limit 1" as String){meta->
+       colNames = (1..meta.columnCount).collect {
+            meta.getColumnName(it)
+        }
+
+}
+
+return colNames.sort()

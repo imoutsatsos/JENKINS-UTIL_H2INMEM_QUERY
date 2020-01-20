@@ -1,0 +1,1254 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>A utility for reviewing Jenkins job in-memory H2 databases&#xd;
+&lt;div class=&quot;task&quot;&gt;&#xd;
+  &lt;a href=&quot;/job/DataSet_Review/build?delay=0sec&quot;&gt;&#xd;
+  &lt;img height=&quot;24&quot; style=&quot;margin: 2px;&quot; alt=&quot;&quot; width=&quot;24&quot; src=&quot;/static/41110db1/images/24x24/clock.png&quot;&gt;&#xd;
+    &lt;img height=&quot;50&quot; style=&quot;margin: 2px;&quot; id=&quot;nonclustered_index_scan_32x&quot; alt=&quot;&quot; src=&quot;/userContent/images/table_header.png&quot; title=&quot;Review a CSV File&quot; xmlns=&quot;&quot;&gt;&#xd;
+  &lt;/a&gt;&amp;nbsp;&#xd;
+  &lt;a href=&quot;/job/UTIL_H2INMEM_QUERY/build?delay=0sec&quot;&gt;QUERY an H2 Jenkins instance Now&lt;/a&gt;&#xd;
+&lt;/div&gt;&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <job-metadata plugin="metadata@1.1.0b">
+      <values class="linked-list">
+        <metadata-string>
+          <name>job-type</name>
+          <description>Options: visualization,data-source
+Galaxy: tool.tool_type</description>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <value>data-source</value>
+        </metadata-string>
+        <metadata-string>
+          <name>output-format</name>
+          <description>This is the data type of the output file. It can be one of the supported data types ( e.g., &quot;tabular&quot; ) or the format of the tool&apos;s input dataset ( e.g., format=&quot;input&quot; ). 
+It can also be an image type if the output is destined for visualization</description>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <value>csv,rds</value>
+        </metadata-string>
+        <metadata-string>
+          <name>metadata-source</name>
+          <description>This reads the metadata information from the tool&apos;s input dataset properties file(named with the extension.properties)</description>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>true</exposedToEnvironment>
+          <value>input-file</value>
+        </metadata-string>
+        <metadata-string>
+          <name>project-repository</name>
+          <description>Bitbucket repository for this project. example https://bitbucket.org/novartisnibr/qmic-job_name
+Clear if no repository </description>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>true</exposedToEnvironment>
+          <value></value>
+        </metadata-string>
+        <metadata-string>
+          <name>project-status</name>
+          <description>A status flag for the project.(test,demo,production,deprecated)</description>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <value>test</value>
+        </metadata-string>
+        <metadata-tree>
+          <name>stats-engine</name>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <children class="linked-list">
+            <metadata-string>
+              <name>library</name>
+              <description>comma separated list of stat-engine libraries required for the job.</description>
+              <parent class="metadata-tree" reference="../../.."/>
+              <generated>false</generated>
+              <exposedToEnvironment>true</exposedToEnvironment>
+              <value>caret,sm</value>
+            </metadata-string>
+            <metadata-string>
+              <name>export-session</name>
+              <description>Options: true/false If the code supports it, it will export session data from the stat engine for debugging purposes</description>
+              <parent class="metadata-tree" reference="../../.."/>
+              <generated>false</generated>
+              <exposedToEnvironment>true</exposedToEnvironment>
+              <value>false</value>
+            </metadata-string>
+          </children>
+        </metadata-tree>
+        <metadata-string>
+          <name>project-revision</name>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>true</exposedToEnvironment>
+          <value></value>
+        </metadata-string>
+        <metadata-string>
+          <name>deprecated</name>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <value>false</value>
+        </metadata-string>
+        <metadata-tree>
+          <name>job-info</name>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>true</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <children class="linked-list">
+            <metadata-tree>
+              <name>last-saved</name>
+              <description></description>
+              <parent class="metadata-tree" reference="../../.."/>
+              <generated>true</generated>
+              <exposedToEnvironment>false</exposedToEnvironment>
+              <children class="linked-list">
+                <metadata-date>
+                  <name>time</name>
+                  <description></description>
+                  <parent class="metadata-tree" reference="../../.."/>
+                  <generated>true</generated>
+                  <exposedToEnvironment>false</exposedToEnvironment>
+                  <value>
+                    <time>1567180494563</time>
+                    <timezone>America/New_York</timezone>
+                  </value>
+                  <checked>false</checked>
+                </metadata-date>
+                <metadata-tree>
+                  <name>user</name>
+                  <parent class="metadata-tree" reference="../../.."/>
+                  <generated>true</generated>
+                  <exposedToEnvironment>false</exposedToEnvironment>
+                  <children class="linked-list">
+                    <metadata-string>
+                      <name>display-name</name>
+                      <description></description>
+                      <parent class="metadata-tree" reference="../../.."/>
+                      <generated>true</generated>
+                      <exposedToEnvironment>false</exposedToEnvironment>
+                      <value>Ioannis Moutsatsos</value>
+                    </metadata-string>
+                    <metadata-string>
+                      <name>full-name</name>
+                      <description></description>
+                      <parent class="metadata-tree" reference="../../.."/>
+                      <generated>true</generated>
+                      <exposedToEnvironment>false</exposedToEnvironment>
+                      <value>Ioannis Moutsatsos</value>
+                    </metadata-string>
+                  </children>
+                </metadata-tree>
+              </children>
+            </metadata-tree>
+          </children>
+        </metadata-tree>
+      </values>
+    </job-metadata>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.29">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>WHAT_IS_THIS</name>
+          <description>&lt;p&gt;For each selected job, the in-memory database tables are displayed and can be queried using typical SQL
+  &lt;p&gt;Editing of SQL is facilitated by &lt;b&gt;auto-generating typical SQL command and Column expressions&lt;/b&gt;</description>
+          <defaultValue>A utility for reviewing Jenkins job in-memory H2 databases</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <org.biouno.unochoice.ChoiceParameter plugin="uno-choice@2.1">
+          <name>PROJECT</name>
+          <description>Select a Job with an H2 in Memory database</description>
+          <randomName>choice-parameter-737844053263194</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.ScriptlerScript">
+            <scriptlerScriptId>displayAllJobs.groovy</scriptlerScriptId>
+            <parameters class="linked-hash-map"/>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <choiceType>PT_SINGLE_SELECT</choiceType>
+          <filterable>true</filterable>
+          <filterLength>3</filterLength>
+        </org.biouno.unochoice.ChoiceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>HELPER_DB</name>
+          <description></description>
+          <randomName>choice-parameter-1775350141730024</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>import org.kohsuke.stapler.Stapler 
+def sessionID= Stapler.getCurrentRequest().getSession().getId() 
+dbInstance= &quot;${jenkinsProject.name}_$sessionID&quot; as String 
+return &quot;&quot;&quot; 
+&lt;input id=&quot;helperDb&quot; name=&quot;value&quot; type=&quot;text&quot; class=&quot;setting-input &quot; value=&quot;$dbInstance&quot;&gt; 
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters></referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>true</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>DB_INSTANCE</name>
+          <description>Identifier for the DB instance. Used to cleanup after the build is finished</description>
+          <randomName>choice-parameter-1079960615230148</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>import org.kohsuke.stapler.Stapler
+
+def sessionID= Stapler.getCurrentRequest().getSession().getId() 
+dbInstance= &quot;${PROJECT}_$sessionID&quot; as String
+return &quot;&quot;&quot;
+&lt;input id=&quot;dbInstance&quot; name=&quot;value&quot; type=&quot;text&quot; class=&quot;setting-input   &quot; value=&quot;$dbInstance&quot;&gt;
+
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &apos;error in DB_INSTANCE script&apos;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>PROJECT</referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>true</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <hudson.model.TextParameterDefinition>
+          <name>DATA_CSV</name>
+          <description>&lt;p&gt;&lt;b&gt;One or more URLs&lt;/b&gt; to CSV files or SQL Data Definition Scripts. &lt;b&gt;URLs from any server URL&lt;/b&gt; can be utilized.
+A DB Table will be created from each URL
+&lt;p&gt;Click on REFRESH TABLES to see newly added tables
+</description>
+          <defaultValue>Provide one or more URLs to CSV file (size &lt;200MB)</defaultValue>
+          <trim>false</trim>
+        </hudson.model.TextParameterDefinition>
+        <org.biouno.unochoice.CascadeChoiceParameter plugin="uno-choice@2.1">
+          <name>DBTABLE</name>
+          <description>&lt;p&gt;Select a database table to display the available TABLE_COLUMNS (below)
+&lt;p&gt;&lt;input type=&quot;button&quot; onclick=&quot;refreshTables()&quot; value=&quot;REFRESH TABLES&quot; &lt;/input&gt;</description>
+          <randomName>choice-parameter-739023009188039</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>/*
+	Lists all in memory tables for a particular Jenkins Job
+	Each Job creates a synonymous in memory db that can include multiple database objects (tables, views etc)
+    DB Objects can be cleaned by setting the flag &apos;cleanDB=true&apos;
+	
+    For creating a table by direct loading of a data set use this:
+    http://nrusca-sd189.nibr.novartis.net:8080/scriptler/runScript?id=H2_inMem_TableDB.groovy
+    
+    For executing any series of SQL commands in script files use this:
+    http://nrusca-sd189.nibr.novartis.net:8080/scriptler/runScript?id=CreateSchema_inMem_TableDB.groovy
+*/
+import org.h2.Driver
+import groovy.sql.Sql
+
+def choices=[]
+def sql = Sql.newInstance(&quot;jdbc:h2:mem:$DB_INSTANCE&quot;, &quot;org.h2.Driver&quot;)
+
+stm0=&apos;SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=\&apos;PUBLIC\&apos; ORDER BY TABLE_NAME ASC&apos;
+
+
+sql.eachRow(stm0) { row -&gt;
+  choices.add(row.TABLE_NAME as String)
+} 
+return choices</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return [&apos;Error in DBTABLE Script&apos;]</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>DB_INSTANCE</referencedParameters>
+          <choiceType>PT_RADIO</choiceType>
+          <filterable>false</filterable>
+          <filterLength>1</filterLength>
+        </org.biouno.unochoice.CascadeChoiceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>SCRIPT_HELPER</name>
+          <description>This should not be visible in the UI</description>
+          <randomName>choice-parameter-376843033115661</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>html=&apos;&apos;&apos;
+&lt;body&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css&quot;&gt;
+&lt;/body&gt;
+&lt;script src=&quot;https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js&quot;&gt; &lt;/script&gt;
+&lt;script src=&quot;https://d3js.org/d3.v4.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/lodash/4.16.4/lodash.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+function retrieveDataSet(){
+var theData=[]
+d3.csv(document.getElementById(&quot;dataCsv&quot;).value, function(data) {
+var selectedColumns=document.getElementById(&quot;dataCols&quot;).value.split(&apos;,&apos;);
+var theDataColumns=[];
+selectedColumns.each(function(c){
+    theDataColumns.push ({data:c});
+});
+//re-initialization requires that we destroy table first
+   jQuery(&quot;#table_id&quot;).dataTable().fnDestroy();
+   
+var table=jQuery(&apos;#table_id&apos;).DataTable({
+    data: data,
+    columns: theDataColumns
+});
+
+});//end d3.csv
+};//end retrieveDataSet function
+
+function setQueryFlag(){
+console.log(&apos;calling2On&apos;)
+document.getElementById(&quot;queryFlag&quot;).value=window.editor.getValue()
+parentId=document.getElementById(&quot;queryFlag&quot;).parentNode.id
+jQuery(&apos;#&apos;+parentId).trigger(&apos;change&apos;)
+};
+
+function resetColExpression(){
+console.log(&apos;Resetting Column Expression&apos;)
+document.getElementById(&quot;colExpression&quot;).value=&apos;&apos;
+};
+
+function resetCustomQuery(){
+console.log(&apos;Resetting Custom Query&apos;)
+window.editor.setValue(&apos;&apos;)
+};
+
+function appendColExpression(){
+console.log(&apos;Appending Column Expression&apos;)
+window.editor.setValue(
+(window.editor.getValue()).concat((window.editor.getValue()==&apos;&apos;)?&apos;&apos;:&apos;\\n&apos;, document.getElementById(&quot;colExpression&quot;).value))
+};
+
+function keepDataSet(){
+document.getElementById(&quot;resKeeper&quot;).value=(document.getElementById(&quot;resKeeper&quot;).value).concat(document.getElementById(&quot;lastResult&quot;).value,&apos;,&apos;)
+};
+
+function refreshTables(){
+// change cascade DB_INSTANCE
+jQuery(&apos;#&apos;+jQuery(&apos;input[value=DB_INSTANCE]&apos;)[0].nextSibling.id).trigger(&apos;change&apos;)
+}
+
+&lt;/script&gt;
+&apos;&apos;&apos;
+//end html
+
+return html
+</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters></referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.ChoiceParameter plugin="uno-choice@2.1">
+          <name>DATA_COMMAND</name>
+          <description>Select a SQL command to apply to selected TABLE_COLUMNS</description>
+          <randomName>choice-parameter-994809330173248</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return [&apos;SELECT FROM TABLE:selected&apos;,&apos;SELECT&apos;, &apos;SELECT TOP 50&apos;,&apos;FROM TABLE&apos;, &apos;WITH_TABLE_ALIAS&apos;, &apos;CONCAT&apos;,&apos;CONCAT_WS&apos;, &apos;GROUP BY&apos;, &apos;INNER JOIN&apos;, &apos;LEFT JOIN&apos;, &apos;RIGHT JOIN&apos;, &apos;ALTER COLUMN-INT&apos;, &apos;DROP TABLE IF EXISTS&apos;, &apos;EXPORT SCHEMA&apos;]</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <choiceType>PT_SINGLE_SELECT</choiceType>
+          <filterable>false</filterable>
+          <filterLength>1</filterLength>
+        </org.biouno.unochoice.ChoiceParameter>
+        <org.biouno.unochoice.CascadeChoiceParameter plugin="uno-choice@2.1">
+          <name>TABLE_COLUMNS</name>
+          <description></description>
+          <randomName>choice-parameter-739023014929830</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>import org.h2.Driver
+import groovy.sql.Sql
+import java.util.logging.Level
+import java.util.logging.Logger
+def LOGGER = Logger.getLogger(&quot;org.biouno.AC_Scripts&quot;); 
+LOGGER.info(&quot;@TABLE_COLUMNS_instance:$DB_INSTANCE&quot;); 
+LOGGER.info(&quot;@TABLE_COLUMNS_table:$DBTABLE&quot;); 
+
+sql = Sql.newInstance(&quot;jdbc:h2:mem:$DB_INSTANCE;DB_CLOSE_DELAY=-1&quot;, &quot;org.h2.Driver&quot;)
+tableName=DBTABLE
+
+sql.rows(&quot;Select * from $tableName limit 1&quot; as String){meta-&gt;
+       colNames = (1..meta.columnCount).collect {
+            meta.getColumnName(it)
+        }
+
+}
+
+return colNames.sort()
+</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &apos;Error in TABLE_COLUMNS script&apos;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>DB_INSTANCE, DBTABLE</referencedParameters>
+          <choiceType>PT_MULTI_SELECT</choiceType>
+          <filterable>true</filterable>
+          <filterLength>1</filterLength>
+        </org.biouno.unochoice.CascadeChoiceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>Hidden_meta</name>
+          <description>This should not be visible in the UI</description>
+          <randomName>choice-parameter-376843039593020</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return &quot;&lt;input name=\&quot;value\&quot; id=\&quot;hidden_meta\&quot; value=\&quot;${TABLE_COLUMNS}\&quot; class=\&quot;setting-input\&quot; type=\&quot;text\&quot;&gt;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>html=&apos;&apos;&apos;
+&lt;input type=&quot;text&quot; name=&quot;script error&quot;&gt;ERROR&lt;/input&gt;
+&apos;&apos;&apos;
+return html</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>TABLE_COLUMNS</referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <hudson.model.BooleanParameterDefinition>
+          <name>USE_TABLE_ALIAS</name>
+          <description>Adds the table alias to each column</description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>COLUMN_EXPRESSION</name>
+          <description>&lt;p&gt;
+Create or edit a column expression that you can &lt;b&gt; [Append] (or drag-and-drop) &lt;/b&gt;to your CUSTOM_QUERY</description>
+          <randomName>choice-parameter-714510010766172</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>/* Case Sensitive Column Names enclosed in quotation */
+def columnNames=(!USE_TABLE_ALIAS)?TABLE_COLUMNS.tokenize(&apos;,&apos;).collect{&apos;&quot;&apos;+it+&apos;&quot;&apos;}.join(&apos;,&apos;):TABLE_COLUMNS.tokenize(&apos;,&apos;).collect{DBTABLE+&apos;.&apos;+&apos;&quot;&apos;+it+&apos;&quot;&apos;}.join(&apos;,&apos;)
+if (columnNames==&apos;&apos;){
+columnNames=&apos;*&apos;
+}else{
+columnNames=columnNames.replace(&apos;,&apos;,&apos;,\n\t&apos;) 
+}
+
+buttons=&quot;&quot;&quot;
+&lt;p&gt;
+&lt;input type=&quot;button&quot; onclick=&quot;appendColExpression()&quot; value=&quot;Append to CUSTOM QUERY&quot;&lt;/input&gt;
+&lt;input type=&quot;button&quot; onclick=&quot;resetColExpression()&quot; value=&quot;Reset&quot;&lt;/input&gt;
+ &lt;input type=&quot;button&quot; onclick=&quot;refreshTables()&quot; value=&quot;REFRESH TABLES&quot; &lt;/input&gt;
+&quot;&quot;&quot;
+
+switch(DATA_COMMAND){
+case&quot;SELECT FROM TABLE&quot;:
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;SELECT\r \t$columnNames \r FROM $DBTABLE&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+ break
+case&quot;SELECT&quot;:
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;SELECT\r \t$columnNames,&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+ break
+ case &quot;GROUP BY&quot;:
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;\tGROUP BY $columnNames &lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+break
+case&quot;SELECT TOP 50&quot;:
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;SELECT TOP 50 \r\t$columnNames&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+break
+case&quot;FROM TABLE&quot;:
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;\tFROM $DBTABLE&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+break
+case&quot;CONCAT&quot;:
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;\tCONCAT($columnNames)&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+break
+case&quot;CONCAT_WS&quot;:
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;\tCONCAT_WS(&apos;,&apos;,$columnNames)&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+break
+case&quot;WITH_TABLE_ALIAS&quot;:
+columnNames=TABLE_COLUMNS.tokenize(&apos;,&apos;).collect{DBTABLE+&apos;.&apos;+&apos;&quot;&apos;+it+&apos;&quot;&apos;}.join(&apos;,\r&apos;)
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;$columnNames&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+break
+case&quot;ALTER COLUMN-INT&quot;:
+alterCol2Int=TABLE_COLUMNS.tokenize(&apos;,&apos;).collect{&apos;ALTER TABLE &apos;+DBTABLE+&apos; ALTER COLUMN &apos;+&apos;&quot;&apos;+it+&apos;&quot;&apos; +&apos; INT &apos; }.join(&apos;;\r&apos;)
+
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;$alterCol2Int&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+break
+case &quot;DROP TABLE IF EXISTS&quot;:
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;\t$DATA_COMMAND $DBTABLE;&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+case ~/^.*JOIN/:
+columnNames=TABLE_COLUMNS.tokenize(&apos;,&apos;).collect{DBTABLE+&apos;.&apos;+&apos;&quot;&apos;+it+&apos;&quot;&apos;+&apos;=FROMtable.&quot;&apos;+it+&apos;&quot;&apos;}.join(&apos;AND \r\t&apos;)
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;\t$DATA_COMMAND $DBTABLE ON \r\t$columnNames&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+break
+
+case&quot;EXPORT SCHEMA&quot;:
+xportCommand=&quot;&quot;&quot;SCRIPT NODATA to  &apos;${SESSIONS_WORKSPACE.replace(&apos;\\&apos;,&apos;/&apos;)}/$HELPER_DB/schemaNoData.sql&apos; &quot;&quot;&quot;
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;$xportCommand&lt;/textarea&gt; $buttons
+&quot;&quot;&quot;
+break
+default:
+return &quot;&quot;&quot;
+&lt;textarea id=&quot;colExpression&quot; name=&quot;value&quot;  rows=&quot;6&quot; cols=&quot;80&quot;  placeholder=&quot;COLUMN EXPRESSION CONSTRUCTION AREA&quot;&gt;\t$DATA_COMMAND $DBTABLE $columnNames&lt;/textarea&gt; $buttons
+
+&quot;&quot;&quot;
+}</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &apos;error in COLUMN_EXPRESSION&apos;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>DBTABLE,TABLE_COLUMNS,USE_TABLE_ALIAS,DATA_COMMAND,HELPER_DB</referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>CUSTOM_QUERY</name>
+          <description>Your Custom QUERY. Once complete, click the &apos;Execute Query&apos; button to run.</description>
+          <randomName>choice-parameter-714510013849525</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return &quot;&quot;&quot;
+  &lt;head&gt;
+    &lt;!--link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/userContent/js/codemirror-5.48.0/doc/docs.css&quot;/--&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/userContent/js/codemirror-5.48.0/lib/codemirror.css&quot; /&gt;
+
+
+    &lt;script src=&quot;/userContent/js/codemirror-5.48.0/lib/codemirror.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/userContent/js/codemirror-5.48.0/addon/edit/matchbrackets.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/userContent/js/codemirror-5.48.0/mode/sql/sql.js&quot;&gt;&lt;/script&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/userContent/js/codemirror-5.48.0/addon/hint/show-hint.css&quot; /&gt;
+    &lt;script src=&quot;/userContent/js/codemirror-5.48.0/addon/hint/show-hint.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/userContent/js/codemirror-5.48.0/addon/hint/sql-hint.js&quot;&gt;&lt;/script&gt;
+    &lt;title&gt;CodeMirror: SQL demonstration&lt;/title&gt;
+    
+  &lt;/head&gt;
+
+&lt;textarea id=&apos;customQuery&apos; name=&quot;value&quot; rows=&quot;6&quot; cols=&quot;80&quot; placeholder=&quot;SQL SCRIPT CONSTRUCTION AREA&quot;&gt;&lt;/textarea&gt;
+&lt;p&gt;
+
+&lt;input type=&quot;button&quot; onclick=&quot;setQueryFlag()&quot; value=&quot;Execute Custom Query&quot;&lt;/input&gt;
+&lt;input type=&quot;button&quot; onclick=&quot;keepDataSet()&quot; value=&quot;Keep Current Results&quot;&lt;/input&gt;
+&lt;input type=&quot;button&quot; onclick=&quot;resetCustomQuery()&quot; value=&quot;Reset&quot;&lt;/input&gt;
+
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &apos;Error in CUSTOM_QUERY script&apos;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters></referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>true</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>codeMirrorEditorScript</name>
+          <description></description>
+          <randomName>choice-parameter-1599168174255387</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return &quot;&quot;&quot;
+&lt;script&gt;
+  var mime = &apos;text/x-mariadb&apos;;
+  // get mime type
+  window.editor = CodeMirror.fromTextArea(document.getElementById(&apos;customQuery&apos;), {
+    mode: mime,
+    indentWithTabs: true,
+    smartIndent: true,
+    lineNumbers: true,
+    matchBrackets : true,
+    autofocus: true,
+    extraKeys: {&quot;Ctrl-Space&quot;: &quot;autocomplete&quot;},
+  });
+
+&lt;/script&gt;
+
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>DBTABLE,TABLE_COLUMNS</referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>QUERY_ONCHANGE</name>
+          <description></description>
+          <randomName>choice-parameter-739023025920892</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>html=&apos;&apos;&apos;
+			 &lt;div id=&quot;queryStatus&quot;&gt;
+			 &lt;input id=&quot;queryFlag&quot; name=&quot;value&quot; value=&quot;OFF&quot; type=&quot;text&quot;/&gt;
+			 &lt;/div&gt;&apos;&apos;&apos;
+			 return html</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &apos;Error in QUERY_FLAG_DB&apos;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters></referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>true</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>REVIEW_RESULTS</name>
+          <description></description>
+          <randomName>choice-parameter-739023031006454</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>import org.h2.Driver
+import groovy.sql.Sql
+import hudson.model.*
+import java.util.logging.Level; 
+import java.util.logging.Logger; 
+
+def LOGGER = Logger.getLogger(&quot;org.biouno.AC_Scripts&quot;); 
+
+def date = new Date()
+timestamp = date.time.toString() 
+jenkinsURL=jenkins.model.Jenkins.instance.getRootUrl()
+
+/*default options for CSVWRITE H2 function */
+def dd = &quot;fieldDelimiter=&quot;
+def cs=&quot;caseSensitiveColumnNames=true&quot;
+
+/*
+Referenced Parameters
+    DB_INSTANCE
+    HELPER_DB
+    QUERY_ONCHANGE
+*/
+customQuery=&quot;customQuery_${timestamp}&quot; //used to name temp folder
+customQueryResults=&quot;${customQuery}.csv&quot;
+vInput=&quot;$jenkinsURL/job/SESSIONS_WORKSPACE/ws/$HELPER_DB/$customQuery/$customQueryResults&quot;
+vOutput=&quot;$SESSIONS_WORKSPACE/$HELPER_DB/$customQuery/$customQueryResults&quot;
+vDataDef=&quot;$SESSIONS_WORKSPACE/$HELPER_DB/dataDefinition.sql&quot;
+
+sql = Sql.newInstance(&quot;jdbc:h2:mem:$DB_INSTANCE&quot;, &quot;org.h2.Driver&quot;)
+
+/* Handle additional h2 Grammar and commands */
+switch(QUERY_ONCHANGE.trim().tokenize(&apos;\r\n&apos;)[0]){
+ case ~/^(?i)OFF.*/:
+ return &quot;&quot;&quot;
+Prepare a CUSTOM_QUERY script to execute &lt;p&gt;
+&quot;&quot;&quot;
+ break
+ case ~/^(?i)Select.*/:
+LOGGER.info(&apos;Detected QUERY&apos;)
+try{
+ //stmt=&quot;CALL CSVWRITE(&apos;$vOutput&apos;, &apos;${QUERY_ONCHANGE.replace(&apos;\&apos;&apos;,&apos;\&apos;\&apos;&apos;)}&apos;, &apos;$dd&apos;, &apos;$cs&apos;)&quot;
+stmt=&quot;CALL CSVWRITE(&apos;$vOutput&apos;, &apos;${QUERY_ONCHANGE.replace(&apos;\&apos;&apos;,&apos;\&apos;\&apos;&apos;)}&apos;, &apos;$cs&apos;)&quot;
+sql.execute(stmt)
+} catch(Exception e)  {    
+LOGGER.severe( &apos;You didn\&apos;t expect::&apos;+e);
+return &quot;&quot;&quot;
+&lt;p style=&quot;color:red;&quot;&gt;Error in $DB_INSTANCE CUSTOM_QUERY!
+&lt;p style=&quot;color:blue;&quot;&gt;${(e as String).replace(&apos;SQL statement&apos;,&apos;&lt;p style=&quot;color:red;&quot;&gt;SQL statement&apos;)}
+&quot;&quot;&quot;
+   }
+writeSQL(vOutput.replace(&apos;csv&apos;,&apos;sql&apos;), QUERY_ONCHANGE)
+sql.rows(&quot;$QUERY_ONCHANGE&quot; as String){meta-&gt;
+       colNames = (1..meta.columnCount).collect {
+            meta.getColumnLabel(it)
+        }
+
+}
+displayCols=colNames.join(&apos;,&apos;)
+
+return &quot;&quot;&quot;Query script executed SUCCESSFULLY &lt;p&gt;Results saved with ID:
+&lt;input id=&apos;lastResult&apos; name=&quot;value&quot; type=&quot;text&quot; class=&quot;setting-input   &quot; value=&quot; $timestamp&quot;&gt;
+&lt;input type=&quot;button&quot; onclick=&quot;retrieveDataSet()&quot; value=&quot;Review Query Results&quot;&lt;/input&gt;
+&lt;input id=&quot;dataCols&quot; value=&quot;$displayCols&quot; hidden=true&gt;
+&lt;input id=&apos;artifactPath&apos; value=&quot;$SESSIONS_WORKSPACE/$HELPER_DB/$customQuery&quot; hidden=true&gt; 
+
+&lt;table id=&quot;table_id&quot; class=&quot;display&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+	    ${displayCols.split(&apos;,&apos;).collect{&apos;&lt;th&gt;&apos;+it+&apos;&lt;/th&gt;&apos;}.join(&apos;\n&apos;)}
+        &lt;/tr&gt;
+    &lt;/thead--&gt;
+    &lt;tbody&gt;
+
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;input id=&quot;dataCsv&quot; value=&quot;$vInput&quot; hidden=true&gt; 
+
+
+&quot;&quot;&quot;
+ break
+case ~/^(?i)CREATE.*|^(?i)DROP.*|^(?i)SCRIPT.*|^(?i)ALTER.*/:
+LOGGER.info(&apos;Detected Data Definition&apos;)
+try{
+   new File(&quot;$SESSIONS_WORKSPACE/$HELPER_DB&quot;).mkdirs()
+    sql.execute(QUERY_ONCHANGE)
+    println &apos;Executed Data Definition:\n\t&apos;+QUERY_ONCHANGE.trim().tokenize(&apos;\r\n&apos;)[0]
+    writeSQL(vDataDef, QUERY_ONCHANGE)
+}
+ catch(Exception e)
+  {    
+LOGGER.severe( &apos;You didn\&apos;t expect::&apos;+e);
+return &quot;&quot;&quot;
+&lt;p style=&quot;color:red;&quot;&gt;Error in $DB_INSTANCE CUSTOM_QUERY!
+&lt;p style=&quot;color:blue;&quot;&gt;${(e as String).replace(&apos;SQL statement&apos;,&apos;&lt;p style=&quot;color:red;&quot;&gt;SQL statement&apos;)}
+&quot;&quot;&quot;
+   }
+   
+break
+default:
+println &apos;No Known Command&apos;
+}
+
+  /*write SQL Script File*/
+def writeSQL(filePath, sqlString){
+sqlFile=new File(filePath)
+q1= sqlString.replace(&apos;\t&apos;,&apos;&apos;).split(&quot; FROM &quot;)
+  if(q1.size()&gt;1){
+civilizedQuery= &quot;${q1[0].replace(&apos;,&apos;,&apos;,\n\t&apos;)}\nFROM ${q1[1]}&quot;
+  }else{
+  civilizedQuery= sqlString.replace(&apos;,&apos;,&apos;,\n\t&apos;)
+  }
+sqlFile&lt;&lt;civilizedQuery.split(&apos;;&apos;).collect{it.trim()}.join(&apos;;\n&apos;)+&apos;;\n&apos;
+}</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &quot;&quot;&quot;
+&lt;p style=&quot;color:red;&quot;&gt;Error in $DB_INSTANCE CUSTOM_QUERY! &lt;p&gt;Check SQL syntax&lt;/p&gt; 
+&lt;p&gt;Folder $SESSIONS_WORKSPACE/$HELPER_DB/
+&lt;p&gt;$QUERY_ONCHANGE
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>DB_INSTANCE,HELPER_DB,QUERY_ONCHANGE</referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>RESULT_LABEL</name>
+          <description></description>
+          <randomName>choice-parameter-1775350132264017</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return &quot;&quot;&quot;
+&lt;input id=&quot;resultLabel&quot; name=&quot;value&quot; value=&quot;${DBTABLE}&quot; class=&quot;setting-input  &quot; type=&quot;text&quot; placeholder=&quot;Data Label&quot;&gt;
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &apos;error in RESULT_LABEL script&apos;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>DBTABLE</referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>RESULTS_TO_KEEP</name>
+          <description>Identifiers of query results to keep in the build archive. These can be downloaded once the build completes</description>
+          <randomName>choice-parameter-1073193287353280</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return&quot;&quot;&quot;
+&lt;input id=&quot;resKeeper&quot; name=&quot;value&quot; type=&quot;text&quot; class=&quot;setting-input   &quot; value=&quot;dataDefinition.sql,&quot;&gt;
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters></referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>H2_inMem_TableDB</name>
+          <description></description>
+          <randomName>choice-parameter-1751452027162670</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.ScriptlerScript">
+            <scriptlerScriptId>H2_inMem_TableDB_multi.groovy</scriptlerScriptId>
+            <parameters class="linked-hash-map">
+              <entry>
+                <string>vDatasetPath</string>
+                <string>$DATA_CSV</string>
+              </entry>
+              <entry>
+                <string>vTableNameAfter</string>
+                <string>job/</string>
+              </entry>
+              <entry>
+                <string>dbNameHelper</string>
+                <string>$DB_INSTANCE</string>
+              </entry>
+            </parameters>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>DATA_CSV,DB_INSTANCE</referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>helperJavaScript</name>
+          <description>helper java script to support the ADD-DELETE-RESET buttons</description>
+          <randomName>choice-parameter-1775350137436461</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script> env=System.getenv()
+helperJavaScriptPath=&quot;${env[&apos;JENKINS_HOME&apos;]}/jobs/${jenkinsProject.name}/buildScripts/helperJavaScript.js&quot;
+helperJavaScript= new File(helperJavaScriptPath as String)
+return &quot;&quot;&quot; &lt;script type=&quot;text/javascript&quot;&gt; ${helperJavaScript.text} &lt;/script&gt;&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters></referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>JSON_RESULTSET_PARAM</name>
+          <description>A JSON formatted parameter array used for managing result sets</description>
+          <randomName>choice-parameter-1775350139566620</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return &quot;&quot;&quot;
+&lt;textarea id=&quot;jsonResultSetParam&quot; name=&quot;value&quot; rows=&quot;5&quot; class=&quot;setting-input   &quot;&gt;&lt;/textarea&gt;
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters></referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>SESSION_PARAMDB</name>
+          <description>Saves the session form parameters for off-sequence sharing</description>
+          <randomName>choice-parameter-1775350142443522</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.ScriptlerScript">
+            <scriptlerScriptId>H2_inMem_ParameterDB.groovy</scriptlerScriptId>
+            <parameters class="linked-hash-map">
+              <entry>
+                <string>vHELPER_DB</string>
+                <string>$HELPER_DB</string>
+              </entry>
+              <entry>
+                <string>vSTOREDPARAMS</string>
+                <string>JSON_RESULTSET_PARAM</string>
+              </entry>
+            </parameters>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>JSON_RESULTSET_PARAM,HELPER_DB</referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>true</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.CascadeChoiceParameter plugin="uno-choice@2.1">
+          <name>RESULTSET_LIST</name>
+          <description></description>
+          <randomName>choice-parameter-1775350144634304</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>import org.h2.Driver
+import groovy.sql.Sql
+
+def choices=[:]
+
+if (SESSION_PARAMDB!=&apos;&apos;){
+
+def slurper = new groovy.json.JsonSlurper()
+helperDB=SESSION_PARAMDB.replace(&apos;PARAMS&apos;, jenkinsProject.name)
+
+def sql = Sql.newInstance(&quot;jdbc:h2:mem:$helperDB&quot;, &quot;org.h2.Driver&quot;)
+stm=&apos;SELECT * FROM &apos;+SESSION_PARAMDB + &apos; WHERE PARAM LIKE \&apos;JSON%\&apos; AND NOT PARAMVALUE= \&apos;\&apos;&apos;
+
+sql.eachRow(stm) { row -&gt;
+optionValue=(slurper.parseText(row.PARAMVALUE.toString())).artifactLabel
+tstamp=(slurper.parseText(row.PARAMVALUE.toString())).TSTAMP
+choices.put(row.PARAM.toString(),&quot;${optionValue}_$tstamp&quot; as String)
+}
+}
+
+
+return choices</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>SESSION_PARAMDB,JSON_RESULTSET_PARAM,MANAGE</referencedParameters>
+          <choiceType>PT_CHECKBOX</choiceType>
+          <filterable>false</filterable>
+          <filterLength>1</filterLength>
+        </org.biouno.unochoice.CascadeChoiceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>RESULTSET_SELECTION</name>
+          <description></description>
+          <randomName>choice-parameter-1775350146808882</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return &quot;&lt;input name=\&quot;value\&quot; value=\&quot;${RESULTSET_LIST}\&quot; class=\&quot;setting-input\&quot; type=\&quot;text\&quot;&gt;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>RESULTSET_LIST</referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>MANAGE_ACTION</name>
+          <description></description>
+          <randomName>choice-parameter-1775350148907472</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return &quot;&quot;&quot;
+&lt;input id=&quot;manageAction&quot; name=&quot;value&quot; type=&quot;text&quot; class=&quot;setting-input   &quot; value=&quot;&quot;&gt;
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>RESULTSET_SELECTION,JSON_RESULTSET_PARAM</referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>MANAGE</name>
+          <description></description>
+          <randomName>choice-parameter-1775350151041263</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>import org.h2.Driver
+import groovy.sql.Sql
+import java.util.logging.Level
+import java.util.logging.Logger
+
+def LOGGER= Logger.getLogger(&apos;org.biouno.unochoice&apos;)
+
+helperDB=HELPER_DB
+def sql = Sql.newInstance(&quot;jdbc:h2:mem:$helperDB&quot;, &quot;org.h2.Driver&quot;)
+
+LOGGER.log(Level.INFO, &quot;ACTION: $MANAGE_ACTION&quot;)
+
+switch(MANAGE_ACTION){
+case&quot;DELETE&quot;:
+stmt1=&quot;&quot;&quot;
+DELETE  FROM $SESSION_PARAMDB
+WHERE PARAM IN (${RESULTSET_SELECTION.split(&apos;,&apos;).collect{&quot;&apos;$it&apos;&quot;}.join(&apos;,&apos;)})
+&quot;&quot;&quot; as String
+sql.execute(stmt1)
+LOGGER.log(Level.INFO, &quot;DELETED: $RESULTSET_SELECTION&quot;)
+break
+case&quot;REVIEW&quot;:
+/*
+do review actions -reload etc
+*/
+break
+default:
+println &apos;fix error&apos;
+LOGGER.log(Level.INFO, &quot;DEFAULT ACTION: ${MANAGE_ACTION}&quot;)
+}
+
+
+html=&apos;&apos;&apos;&lt;div id=&quot;managePlan&quot;&gt;
+&lt;input id=&quot;makeTestGallery&quot; name=&quot;testGalleryButton&quot; type=&quot;button&quot; value=&quot;ADD&quot; onclick=&quot;setJsonResultParam(&apos;jsonResultSetParam&apos;)&quot;&gt;     
+&lt;input id=&quot;deleteEntry&quot; type=&quot;button&quot; value=&quot;DELETE&quot; onclick=&quot;document.getElementById(&apos;manageAction&apos;).value=&apos;DELETE&apos;;jQuery(&apos;#manageAction&apos;).trigger(&apos;change&apos;)&quot;/&gt;
+&lt;input id=&quot;reviewEntry&quot; type=&quot;button&quot; value=&quot;REVIEW&quot; disabled=&quot;true&quot; onclick=&quot;document.getElementById(&apos;manageAction&apos;).value=&apos;REVIEW&apos;;jQuery(&apos;#manageAction&apos;).trigger(&apos;change&apos;)&quot;/&gt;
+&lt;p&gt;
+&lt;/div&gt;&apos;&apos;&apos;
+return html</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>HELPER_DB,SESSION_PARAMDB,MANAGE_ACTION,RESULTSET_SELECTION</referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>BUILD_LABEL</name>
+          <description>&lt;p&gt;A short label for the generated data set</description>
+          <randomName>choice-parameter-1084668775543819</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return &quot;&quot;&quot;
+&lt;input name=&quot;value&quot; value=&quot;$DBTABLE&quot; class=&quot;setting-input  &quot; type=&quot;text&quot; placeholder=&quot;Data Label&quot;&gt;
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &apos;Script error for BUILD_LABEL&apos;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>UTIL_H2INMEM_QUERY</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>DBTABLE</referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>true</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder plugin="scriptler@2.9">
+      <builderId>1537387323192_23</builderId>
+      <scriptId>JSON_CopyFolder_DBObject.groovy</scriptId>
+      <propagateParams>false</propagateParams>
+      <parameters>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>vSESSION_PARAMDB</name>
+          <value>$SESSION_PARAMDB</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>vOUTPUT_FOLDER</name>
+          <value>$WORKSPACE</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>vDBNAME_HELPER</name>
+          <value>$HELPER_DB</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>vJSON_PARAM_KEY</name>
+          <value>JSON_RESULTSET</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+      </parameters>
+    </org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder>
+    <org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder plugin="scriptler@2.9">
+      <builderId>1562614892004_1</builderId>
+      <scriptId>copyServerStaticArtifact.groovy</scriptId>
+      <propagateParams>false</propagateParams>
+      <parameters>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>artifactFilter</name>
+          <value>dataDefinition.sql</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>contentFolder</name>
+          <value>$SESSIONS_WORKSPACE/$HELPER_DB</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>targetFolder</name>
+          <value>schemaDef</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+      </parameters>
+    </org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder>
+    <org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder plugin="scriptler@2.9">
+      <builderId>1562614892004_2</builderId>
+      <scriptId>Delete_JobSessionWorkspace.groovy</scriptId>
+      <propagateParams>false</propagateParams>
+      <parameters>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>JOB_SESSION_WORKSPACE</name>
+          <value>$HELPER_DB</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>SESSIONS_WORKSPACE</name>
+          <value>$SESSIONS_WORKSPACE</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+      </parameters>
+    </org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder>
+    <org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder plugin="scriptler@2.9">
+      <builderId>1530041907742_5</builderId>
+      <scriptId>H2_InJenkinsMemClose.groovy</scriptId>
+      <propagateParams>false</propagateParams>
+      <parameters>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>vDbInstance</name>
+          <value>$HELPER_DB</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>shutdown</name>
+          <value>true</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+      </parameters>
+    </org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>**/*.csv, **/*.sql</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+    </hudson.tasks.ArtifactArchiver>
+    <org.korosoft.jenkins.plugin.rtp.RichTextPublisher plugin="rich-text-publisher-plugin@1.3">
+      <stableText>&lt;h3&gt;The query results and corresponding SQL scripts can be downloaded as a zip file&lt;/h3&gt;
+&lt;h4&gt;Click the &lt;b&gt;Build Artifacts&lt;/b&gt;  link above to review and download.&lt;/h4&gt;</stableText>
+      <unstableText></unstableText>
+      <failedText></failedText>
+      <unstableAsStable>true</unstableAsStable>
+      <failedAsStable>true</failedAsStable>
+      <parserName>HTML</parserName>
+    </org.korosoft.jenkins.plugin.rtp.RichTextPublisher>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.34">
+      <patterns class="empty-list"/>
+      <deleteDirs>false</deleteDirs>
+      <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>false</cleanWhenUnstable>
+      <cleanWhenFailure>false</cleanWhenFailure>
+      <cleanWhenNotBuilt>false</cleanWhenNotBuilt>
+      <cleanWhenAborted>false</cleanWhenAborted>
+      <notFailBuild>false</notFailBuild>
+      <cleanupMatrixParent>false</cleanupMatrixParent>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.WsCleanup>
+  </publishers>
+  <buildWrappers>
+    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.9">
+      <template>${ENV,var=&quot;BUILD_LABEL&quot;}</template>
+      <runAtStart>true</runAtStart>
+      <runAtEnd>true</runAtEnd>
+    </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>
+  </buildWrappers>
+</project>

@@ -1,0 +1,87 @@
+/* Case Sensitive Column Names enclosed in quotation */
+def columnNames=(!USE_TABLE_ALIAS)?TABLE_COLUMNS.tokenize(',').collect{'"'+it+'"'}.join(','):TABLE_COLUMNS.tokenize(',').collect{DBTABLE+'.'+'"'+it+'"'}.join(',')
+if (columnNames==''){
+columnNames='*'
+}else{
+columnNames=columnNames.replace(',',',\n\t') 
+}
+
+buttons="""
+<p>
+<input type="button" onclick="appendColExpression()" value="Append to CUSTOM QUERY"</input>
+<input type="button" onclick="resetColExpression()" value="Reset"</input>
+ <input type="button" onclick="refreshTables()" value="REFRESH TABLES" </input>
+"""
+
+switch(DATA_COMMAND){
+case"SELECT FROM TABLE":
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">SELECT\r \t$columnNames \r FROM $DBTABLE</textarea> $buttons
+"""
+ break
+case"SELECT":
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">SELECT\r \t$columnNames,</textarea> $buttons
+"""
+ break
+ case "GROUP BY":
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">\tGROUP BY $columnNames </textarea> $buttons
+"""
+break
+case"SELECT TOP 50":
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">SELECT TOP 50 \r\t$columnNames</textarea> $buttons
+"""
+break
+case"FROM TABLE":
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">\tFROM $DBTABLE</textarea> $buttons
+"""
+break
+case"CONCAT":
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">\tCONCAT($columnNames)</textarea> $buttons
+"""
+break
+case"CONCAT_WS":
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">\tCONCAT_WS(',',$columnNames)</textarea> $buttons
+"""
+break
+case"WITH_TABLE_ALIAS":
+columnNames=TABLE_COLUMNS.tokenize(',').collect{DBTABLE+'.'+'"'+it+'"'}.join(',\r')
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">$columnNames</textarea> $buttons
+"""
+break
+case"ALTER COLUMN-INT":
+alterCol2Int=TABLE_COLUMNS.tokenize(',').collect{'ALTER TABLE '+DBTABLE+' ALTER COLUMN '+'"'+it+'"' +' INT ' }.join(';\r')
+
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">$alterCol2Int</textarea> $buttons
+"""
+break
+case "DROP TABLE IF EXISTS":
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">\t$DATA_COMMAND $DBTABLE;</textarea> $buttons
+"""
+case ~/^.*JOIN/:
+columnNames=TABLE_COLUMNS.tokenize(',').collect{DBTABLE+'.'+'"'+it+'"'+'=FROMtable."'+it+'"'}.join('AND \r\t')
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">\t$DATA_COMMAND $DBTABLE ON \r\t$columnNames</textarea> $buttons
+"""
+break
+
+case"EXPORT SCHEMA":
+xportCommand="""SCRIPT NODATA to  '${SESSIONS_WORKSPACE.replace('\\','/')}/$HELPER_DB/schemaNoData.sql' """
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">$xportCommand</textarea> $buttons
+"""
+break
+default:
+return """
+<textarea id="colExpression" name="value"  rows="6" cols="80"  placeholder="COLUMN EXPRESSION CONSTRUCTION AREA">\t$DATA_COMMAND $DBTABLE $columnNames</textarea> $buttons
+
+"""
+}

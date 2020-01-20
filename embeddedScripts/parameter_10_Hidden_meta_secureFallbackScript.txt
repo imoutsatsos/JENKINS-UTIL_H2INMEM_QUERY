@@ -1,0 +1,4 @@
+html='''
+<input type="text" name="script error">ERROR</input>
+'''
+return html

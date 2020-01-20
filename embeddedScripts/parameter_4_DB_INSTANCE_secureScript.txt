@@ -1,0 +1,8 @@
+import org.kohsuke.stapler.Stapler
+
+def sessionID= Stapler.getCurrentRequest().getSession().getId() 
+dbInstance= "${PROJECT}_$sessionID" as String
+return """
+<input id="dbInstance" name="value" type="text" class="setting-input   " value="$dbInstance">
+
+"""

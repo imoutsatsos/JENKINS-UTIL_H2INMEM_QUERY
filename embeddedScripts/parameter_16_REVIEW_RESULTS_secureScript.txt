@@ -1,0 +1,113 @@
+import org.h2.Driver
+import groovy.sql.Sql
+import hudson.model.*
+import java.util.logging.Level; 
+import java.util.logging.Logger; 
+
+def LOGGER = Logger.getLogger("org.biouno.AC_Scripts"); 
+
+def date = new Date()
+timestamp = date.time.toString() 
+jenkinsURL=jenkins.model.Jenkins.instance.getRootUrl()
+
+/*default options for CSVWRITE H2 function */
+def dd = "fieldDelimiter="
+def cs="caseSensitiveColumnNames=true"
+
+/*
+Referenced Parameters
+    DB_INSTANCE
+    HELPER_DB
+    QUERY_ONCHANGE
+*/
+customQuery="customQuery_${timestamp}" //used to name temp folder
+customQueryResults="${customQuery}.csv"
+vInput="$jenkinsURL/job/SESSIONS_WORKSPACE/ws/$HELPER_DB/$customQuery/$customQueryResults"
+vOutput="$SESSIONS_WORKSPACE/$HELPER_DB/$customQuery/$customQueryResults"
+vDataDef="$SESSIONS_WORKSPACE/$HELPER_DB/dataDefinition.sql"
+
+sql = Sql.newInstance("jdbc:h2:mem:$DB_INSTANCE", "org.h2.Driver")
+
+/* Handle additional h2 Grammar and commands */
+switch(QUERY_ONCHANGE.trim().tokenize('\r\n')[0]){
+ case ~/^(?i)OFF.*/:
+ return """
+Prepare a CUSTOM_QUERY script to execute <p>
+"""
+ break
+ case ~/^(?i)Select.*/:
+LOGGER.info('Detected QUERY')
+try{
+ //stmt="CALL CSVWRITE('$vOutput', '${QUERY_ONCHANGE.replace('\'','\'\'')}', '$dd', '$cs')"
+stmt="CALL CSVWRITE('$vOutput', '${QUERY_ONCHANGE.replace('\'','\'\'')}', '$cs')"
+sql.execute(stmt)
+} catch(Exception e)  {    
+LOGGER.severe( 'You didn\'t expect::'+e);
+return """
+<p style="color:red;">Error in $DB_INSTANCE CUSTOM_QUERY!
+<p style="color:blue;">${(e as String).replace('SQL statement','<p style="color:red;">SQL statement')}
+"""
+   }
+writeSQL(vOutput.replace('csv','sql'), QUERY_ONCHANGE)
+sql.rows("$QUERY_ONCHANGE" as String){meta->
+       colNames = (1..meta.columnCount).collect {
+            meta.getColumnLabel(it)
+        }
+
+}
+displayCols=colNames.join(',')
+
+return """Query script executed SUCCESSFULLY <p>Results saved with ID:
+<input id='lastResult' name="value" type="text" class="setting-input   " value=" $timestamp">
+<input type="button" onclick="retrieveDataSet()" value="Review Query Results"</input>
+<input id="dataCols" value="$displayCols" hidden=true>
+<input id='artifactPath' value="$SESSIONS_WORKSPACE/$HELPER_DB/$customQuery" hidden=true> 
+
+<table id="table_id" class="display">
+    <thead>
+        <tr>
+	    ${displayCols.split(',').collect{'<th>'+it+'</th>'}.join('\n')}
+        </tr>
+    </thead-->
+    <tbody>
+
+    </tbody>
+</table>
+<input id="dataCsv" value="$vInput" hidden=true> 
+
+
+"""
+ break
+case ~/^(?i)CREATE.*|^(?i)DROP.*|^(?i)SCRIPT.*|^(?i)ALTER.*/:
+LOGGER.info('Detected Data Definition')
+try{
+   new File("$SESSIONS_WORKSPACE/$HELPER_DB").mkdirs()
+    sql.execute(QUERY_ONCHANGE)
+    println 'Executed Data Definition:\n\t'+QUERY_ONCHANGE.trim().tokenize('\r\n')[0]
+    writeSQL(vDataDef, QUERY_ONCHANGE)
+}
+ catch(Exception e)
+  {    
+LOGGER.severe( 'You didn\'t expect::'+e);
+return """
+<p style="color:red;">Error in $DB_INSTANCE CUSTOM_QUERY!
+<p style="color:blue;">${(e as String).replace('SQL statement','<p style="color:red;">SQL statement')}
+"""
+   }
+   
+break
+default:
+println 'No Known Command'
+}
+
+  /*write SQL Script File*/
+def writeSQL(filePath, sqlString){
+sqlFile=new File(filePath)
+q1= sqlString.replace('\t','').split(" FROM ")
+  if(q1.size()>1){
+civilizedQuery= "${q1[0].replace(',',',\n\t')}\nFROM ${q1[1]}"
+  }else{
+  civilizedQuery= sqlString.replace(',',',\n\t')
+  }
+sqlFile<<civilizedQuery.split(';').collect{it.trim()}.join(';\n')+';\n'
+}

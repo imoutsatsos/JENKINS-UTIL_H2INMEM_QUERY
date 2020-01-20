@@ -1,0 +1,22 @@
+import org.h2.Driver
+import groovy.sql.Sql
+
+def choices=[:]
+
+if (SESSION_PARAMDB!=''){
+
+def slurper = new groovy.json.JsonSlurper()
+helperDB=SESSION_PARAMDB.replace('PARAMS', jenkinsProject.name)
+
+def sql = Sql.newInstance("jdbc:h2:mem:$helperDB", "org.h2.Driver")
+stm='SELECT * FROM '+SESSION_PARAMDB + ' WHERE PARAM LIKE \'JSON%\' AND NOT PARAMVALUE= \'\''
+
+sql.eachRow(stm) { row ->
+optionValue=(slurper.parseText(row.PARAMVALUE.toString())).artifactLabel
+tstamp=(slurper.parseText(row.PARAMVALUE.toString())).TSTAMP
+choices.put(row.PARAM.toString(),"${optionValue}_$tstamp" as String)
+}
+}
+
+
+return choices

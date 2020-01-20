@@ -1,0 +1,3 @@
+return"""
+<input id="resKeeper" name="value" type="text" class="setting-input   " value="dataDefinition.sql,">
+"""

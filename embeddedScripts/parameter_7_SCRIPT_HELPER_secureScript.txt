@@ -1,0 +1,65 @@
+html='''
+<body>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+</body>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.16.4/lodash.min.js"></script>
+
+<script>
+function retrieveDataSet(){
+var theData=[]
+d3.csv(document.getElementById("dataCsv").value, function(data) {
+var selectedColumns=document.getElementById("dataCols").value.split(',');
+var theDataColumns=[];
+selectedColumns.each(function(c){
+    theDataColumns.push ({data:c});
+});
+//re-initialization requires that we destroy table first
+   jQuery("#table_id").dataTable().fnDestroy();
+   
+var table=jQuery('#table_id').DataTable({
+    data: data,
+    columns: theDataColumns
+});
+
+});//end d3.csv
+};//end retrieveDataSet function
+
+function setQueryFlag(){
+console.log('calling2On')
+document.getElementById("queryFlag").value=window.editor.getValue()
+parentId=document.getElementById("queryFlag").parentNode.id
+jQuery('#'+parentId).trigger('change')
+};
+
+function resetColExpression(){
+console.log('Resetting Column Expression')
+document.getElementById("colExpression").value=''
+};
+
+function resetCustomQuery(){
+console.log('Resetting Custom Query')
+window.editor.setValue('')
+};
+
+function appendColExpression(){
+console.log('Appending Column Expression')
+window.editor.setValue(
+(window.editor.getValue()).concat((window.editor.getValue()=='')?'':'\\n', document.getElementById("colExpression").value))
+};
+
+function keepDataSet(){
+document.getElementById("resKeeper").value=(document.getElementById("resKeeper").value).concat(document.getElementById("lastResult").value,',')
+};
+
+function refreshTables(){
+// change cascade DB_INSTANCE
+jQuery('#'+jQuery('input[value=DB_INSTANCE]')[0].nextSibling.id).trigger('change')
+}
+
+</script>
+'''
+//end html
+
+return html

@@ -1,0 +1,3 @@
+return """
+<input name="value" value="$DBTABLE" class="setting-input  " type="text" placeholder="Data Label">
+"""

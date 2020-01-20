@@ -1,0 +1,5 @@
+return """
+<p style="color:red;">Error in $DB_INSTANCE CUSTOM_QUERY! <p>Check SQL syntax</p> 
+<p>Folder $SESSIONS_WORKSPACE/$HELPER_DB/
+<p>$QUERY_ONCHANGE
+"""

@@ -1,0 +1,24 @@
+/*
+	Lists all in memory tables for a particular Jenkins Job
+	Each Job creates a synonymous in memory db that can include multiple database objects (tables, views etc)
+    DB Objects can be cleaned by setting the flag 'cleanDB=true'
+	
+    For creating a table by direct loading of a data set use this:
+    http://nrusca-sd189.nibr.novartis.net:8080/scriptler/runScript?id=H2_inMem_TableDB.groovy
+    
+    For executing any series of SQL commands in script files use this:
+    http://nrusca-sd189.nibr.novartis.net:8080/scriptler/runScript?id=CreateSchema_inMem_TableDB.groovy
+*/
+import org.h2.Driver
+import groovy.sql.Sql
+
+def choices=[]
+def sql = Sql.newInstance("jdbc:h2:mem:$DB_INSTANCE", "org.h2.Driver")
+
+stm0='SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=\'PUBLIC\' ORDER BY TABLE_NAME ASC'
+
+
+sql.eachRow(stm0) { row ->
+  choices.add(row.TABLE_NAME as String)
+} 
+return choices
