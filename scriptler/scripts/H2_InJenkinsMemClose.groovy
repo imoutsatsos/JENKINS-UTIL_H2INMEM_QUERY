@@ -1,7 +1,7 @@
 /*** BEGIN META {
   "name" : "H2_InJenkinsMemClose",
   "comment" : "Closes an in memory database instance",
-  "parameters" : [ 'vDbInstance'],
+  "parameters" : [ 'vDbInstance', 'shutdown'],
   "core": "2.100",
   "authors" : [
     { name : "Ioannis K. Moutsatsos" }
@@ -9,23 +9,13 @@
 } END META**/
 
 /*
-	Lists all in memory tables for a particular Jenkins Job
-	Each Job creates a synonymous in memory db that can include multiple database objects (tables, views etc)
+   Lists all in memory tables for a particular Jenkins Job
+    Each Job creates a synonymous in memory H2 db instance that can include multiple database objects (tables, views etc)
     DB Objects can be cleaned by setting the flag 'cleanDB=true'
-	
-    For creating a table by direct loading of a data set use this:
-    http://nrusca-sd189.nibr.novartis.net:8080/scriptler/runScript?id=H2_inMem_TableDB.groovy
-    
-    For executing any series of SQL commands in script files use this:
-    http://nrusca-sd189.nibr.novartis.net:8080/scriptler/runScript?id=CreateSchema_inMem_TableDB.groovy
 */
 import org.h2.Driver
 import groovy.sql.Sql
 import org.kohsuke.stapler.Stapler
-/*
-def sessionID= Stapler.getCurrentRequest().getSession().getId() 
-println "Session ID: $sessionID"
-*/
 
 dbs=vDbInstance.tokenize(',').collect{it.trim()}
 dbs.each{dbInstance->
