@@ -1,13 +1,5 @@
 # UTIL_H2INMEM_QUERY README #
-UTIL_H2INMEM_QUERY:A utility for reviewing Jenkins job in-memory H2 databases
-<div class="task">
-  <a href="/job/DataSet_Review/build?delay=0sec">
-  <img height="24" style="margin: 2px;" alt="" width="24" src="/static/41110db1/images/24x24/clock.png">
-    <img height="50" style="margin: 2px;" id="nonclustered_index_scan_32x" alt="" src="/userContent/images/table_header.png" title="Review a CSV File" xmlns="">
-  </a>&nbsp;
-  <a href="/job/UTIL_H2INMEM_QUERY/build?delay=0sec">QUERY an H2 Jenkins instance Now</a>
-</div>
-
+A utility for reviewing Jenkins job in-memory H2 databases
 
 ### What is this repository for? ###
 
